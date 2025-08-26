@@ -89,8 +89,12 @@
       z-index: 2;
       margin: 0;
       border-radius: 0 0 12px 12px;
-      min-height: 60px;
+      min-height: 50px;
+      height: auto;
       overflow: hidden;
+      line-height: 1.5;
+      word-wrap: break-word;
+      white-space: pre-wrap;
     }
     
     button {
@@ -132,7 +136,7 @@
   <button onclick="baixarImagem()">📥 Baixar como imagem</button>
   
   <div class="footer">
-    Feito com ❤️ • <a href="https://github.com/seu-usuario/caixinha-perguntas" target="_blank">GitHub</a>
+    Feito com ❤️ • <a href="https://github.com/ronaldofelix/caixinha-perguntas" target="_blank">GitHub</a>
   </div>
   
   <script src="https://cdnjs.cloudflare.com/ajax/libs/html2canvas/1.4.1/html2canvas.min.js"></script>
@@ -140,11 +144,22 @@
     // Função para ajustar a altura do textarea automaticamente
     function ajustarAltura() {
       const textarea = document.querySelector('.resposta');
+      
+      if (textarea.value.trim() === '') {
+        textarea.style.height = '50px';
+        return;
+      }
+      
       textarea.style.height = 'auto';
-      textarea.style.height = Math.max(60, textarea.scrollHeight) + 'px';
+      textarea.style.height = '1px';
+      
+      const scrollHeight = textarea.scrollHeight;
+      const minHeight = 50;
+      const finalHeight = Math.max(minHeight, scrollHeight + 3);
+      
+      textarea.style.height = finalHeight + 'px';
     }
     
-    // Adiciona o evento de input para ajustar a altura conforme o usuário digita
     document.addEventListener('DOMContentLoaded', function() {
       const textarea = document.querySelector('.resposta');
       const pergunta = document.querySelector('.pergunta');
@@ -154,39 +169,51 @@
         setTimeout(ajustarAltura, 0);
       });
       
-      // Evita quebra de linha no campo de pergunta
       pergunta.addEventListener('keydown', function(e) {
         if (e.key === 'Enter') {
           e.preventDefault();
         }
       });
       
-      // Ajusta a altura inicial
       ajustarAltura();
     });
     
     function baixarImagem() {
       const elemento = document.getElementById("caixinha");
-      
-      // Configurações otimizadas para PNG transparente
+      const textarea = document.querySelector('.resposta');
+
+      // Criar div temporária que copia o estilo e conteúdo do textarea
+      const tempDiv = document.createElement("div");
+      tempDiv.className = "resposta";
+      const style = window.getComputedStyle(textarea);
+      tempDiv.style.whiteSpace = "pre-wrap";
+      tempDiv.style.wordWrap = "break-word";
+      tempDiv.style.padding = style.padding;
+      tempDiv.style.font = style.font;
+      tempDiv.style.lineHeight = style.lineHeight;
+      tempDiv.style.color = "#000";
+      tempDiv.style.minHeight = style.minHeight;
+      tempDiv.style.borderRadius = style.borderRadius;
+      tempDiv.innerText = textarea.value || textarea.placeholder;
+
+      textarea.style.display = "none";
+      textarea.parentNode.insertBefore(tempDiv, textarea);
+
       html2canvas(elemento, {
         backgroundColor: null,
         scale: 2,
-        useCORS: true,
-        allowTaint: true,
-        imageTimeout: 0,
-        removeContainer: true,
-        logging: false,
-        width: elemento.offsetWidth,
-        height: elemento.offsetHeight,
-        scrollX: 0,
-        scrollY: 0
+        useCORS: true
       }).then(function(canvas) {
+        textarea.style.display = "block";
+        tempDiv.remove();
+
         const link = document.createElement("a");
         link.download = "caixinha.png";
         link.href = canvas.toDataURL('image/png');
         link.click();
       }).catch(function(error) {
+        textarea.style.display = "block";
+        tempDiv.remove();
         console.error("Erro ao gerar imagem:", error);
       });
     }
