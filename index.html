@@ -1,0 +1,195 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Caixinha de Perguntas</title>
+  <meta name="description" content="Gerador de caixinhas de perguntas personalizadas para redes sociais">
+  <meta name="keywords" content="perguntas, stories, instagram, redes sociais, gerador">
+  <style>
+    body {
+      background: #233568;
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+      align-items: center;
+      height: 100vh;
+      margin: 0;
+      font-family: 'Helvetica Neue', Helvetica, Arial, sans-serif;
+      gap: 20px;
+    }
+    .caixinha {
+      width: 300px;
+      border-radius: 12px;
+      overflow: hidden;
+      box-shadow: 0 4px 12px rgba(0,0,0,0.4);
+      background: #1c1c1c;
+      position: relative;
+      -webkit-font-smoothing: antialiased;
+      -moz-osx-font-smoothing: grayscale;
+      transform: translateZ(0);
+    }
+    
+    .caixinha::before {
+      content: '';
+      position: absolute;
+      top: 0;
+      left: 0;
+      right: 0;
+      bottom: 0;
+      border-radius: 12px;
+      background: linear-gradient(180deg, #1c1c1c 40px, #fff 40px);
+      z-index: 1;
+      pointer-events: none;
+    }
+    
+    .pergunta {
+      background: #1c1c1c;
+      color: white;
+      text-align: center;
+      font-weight: bold;
+      font-size: 16px;
+      border: none;
+      outline: none;
+      width: 100%;
+      height: 40px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-family: 'Helvetica Neue', Helvetica, Arial, sans-serif;
+      position: relative;
+      z-index: 2;
+      border-radius: 12px 12px 0 0;
+      margin: 0;
+      padding: 0 15px;
+      box-sizing: border-box;
+      cursor: text;
+    }
+    
+    .pergunta:focus {
+      outline: none;
+    }
+    
+    .pergunta:empty::before {
+      content: "Faça uma pergunta";
+      color: #ccc;
+    }
+    
+    .resposta {
+      background: #fff;
+      border: none;
+      width: 100%;
+      padding: 15px;
+      font-size: 14px;
+      outline: none;
+      box-sizing: border-box;
+      font-family: 'Helvetica Neue', Helvetica, Arial, sans-serif;
+      resize: none;
+      position: relative;
+      z-index: 2;
+      margin: 0;
+      border-radius: 0 0 12px 12px;
+      min-height: 60px;
+      overflow: hidden;
+    }
+    
+    button {
+      padding: 10px 16px;
+      border: none;
+      border-radius: 8px;
+      background: #1c1c1c;
+      color: white;
+      font-weight: bold;
+      cursor: pointer;
+      transition: 0.2s;
+    }
+    button:hover {
+      background: #333;
+    }
+    
+    .footer {
+      position: absolute;
+      bottom: 20px;
+      color: #666;
+      font-size: 12px;
+    }
+    
+    .footer a {
+      color: #888;
+      text-decoration: none;
+    }
+    
+    .footer a:hover {
+      color: #fff;
+    }
+  </style>
+</head>
+<body>
+  <div id="caixinha" class="caixinha">
+    <div class="pergunta" contenteditable="true">Faça uma pergunta</div>
+    <textarea class="resposta" placeholder="Digite sua resposta aqui..."></textarea>
+  </div>
+  <button onclick="baixarImagem()">📥 Baixar como imagem</button>
+  
+  <div class="footer">
+    Feito com ❤️ • <a href="https://github.com/seu-usuario/caixinha-perguntas" target="_blank">GitHub</a>
+  </div>
+  
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/html2canvas/1.4.1/html2canvas.min.js"></script>
+  <script>
+    // Função para ajustar a altura do textarea automaticamente
+    function ajustarAltura() {
+      const textarea = document.querySelector('.resposta');
+      textarea.style.height = 'auto';
+      textarea.style.height = Math.max(60, textarea.scrollHeight) + 'px';
+    }
+    
+    // Adiciona o evento de input para ajustar a altura conforme o usuário digita
+    document.addEventListener('DOMContentLoaded', function() {
+      const textarea = document.querySelector('.resposta');
+      const pergunta = document.querySelector('.pergunta');
+      
+      textarea.addEventListener('input', ajustarAltura);
+      textarea.addEventListener('paste', function() {
+        setTimeout(ajustarAltura, 0);
+      });
+      
+      // Evita quebra de linha no campo de pergunta
+      pergunta.addEventListener('keydown', function(e) {
+        if (e.key === 'Enter') {
+          e.preventDefault();
+        }
+      });
+      
+      // Ajusta a altura inicial
+      ajustarAltura();
+    });
+    
+    function baixarImagem() {
+      const elemento = document.getElementById("caixinha");
+      
+      // Configurações otimizadas para PNG transparente
+      html2canvas(elemento, {
+        backgroundColor: null,
+        scale: 2,
+        useCORS: true,
+        allowTaint: true,
+        imageTimeout: 0,
+        removeContainer: true,
+        logging: false,
+        width: elemento.offsetWidth,
+        height: elemento.offsetHeight,
+        scrollX: 0,
+        scrollY: 0
+      }).then(function(canvas) {
+        const link = document.createElement("a");
+        link.download = "caixinha.png";
+        link.href = canvas.toDataURL('image/png');
+        link.click();
+      }).catch(function(error) {
+        console.error("Erro ao gerar imagem:", error);
+      });
+    }
+  </script>
+</body>
+</html>
