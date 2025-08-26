@@ -30,9 +30,9 @@ Esta ferramenta é ideal para criadores de conteúdo, editores de vídeo e image
 - 🖼️ **Export otimizado**: PNG transparente em alta resolução (2x)
 - ⚡ **Instantâneo**: Sem cadastro, sem espera, sem complicação
 
-## 🌐 Demo
+## 🌐 Acesse a aplicação
 
-Acesse a aplicação em: **[https://ronaldofelix.github.io/caixinha-perguntas/](https://ronaldofelix.github.io/caixinha-perguntas)**
+Demo da aplicação em: **[https://ronaldofelix.github.io/caixinha-perguntas/](https://ronaldofelix.github.io/caixinha-perguntas)**
 
 
 ## 🛠️ Especificações técnicas
