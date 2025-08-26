@@ -1,33 +1,54 @@
 # 📦 Caixinha de Perguntas
 
-Uma aplicação web simples e elegante para criar caixinhas de perguntas personalizadas para redes sociais, especialmente para stories do Instagram.
+Gere caixinhas de perguntas do Instagram totalmente editáveis em PNG transparente, prontas para usar em qualquer software de edição. Crie templates rapidamente, de forma prática e profissional.
 
-## ✨ Funcionalidades
+## 🎯 Para quem é esta ferramenta?
 
-- ✏️ **Editor de pergunta**: Campo editável para personalizar sua pergunta
-- 📝 **Área de resposta adaptável**: O campo de resposta se ajusta automaticamente ao tamanho do texto
-- 🎨 **Design moderno**: Interface minimalista com bordas arredondadas e visual clean
-- 📱 **Responsivo**: Funciona perfeitamente em dispositivos móveis e desktop
-- 🖼️ **Export PNG**: Baixe sua caixinha como imagem PNG com fundo transparente
-- 🚀 **Zero dependências**: Funciona completamente offline após o primeiro carregamento
+Esta ferramenta é ideal para criadores de conteúdo, editores de vídeo e imagem que precisam produzir caixinhas de perguntas de forma rápida e de alta qualidade.
+
+## ✨ Por que usar esta ferramenta?
+
+### ❌ **Problema comum:**
+- Procurar por PNGs de caixinhas de pergunta na internet
+- Usar templates fixos que não se adaptam ao seu texto
+- Criar do zero no Photoshop perdendo tempo valioso
+- Caixinhas com texto muito pequeno ou cortado
+
+### ✅ **Solução:**
+- **Texto totalmente editável**: Personalize pergunta e resposta
+- **Tamanho adaptativo**: A caixinha se ajusta automaticamente ao conteúdo
+- **PNG transparente**: Pronto para sobrepor em qualquer projeto
+- **Alta resolução**: Qualidade perfeita para edição profissional
+- **Zero custo**: Completamente gratuito e sem marca d'água
+
+## 🔥 Funcionalidades principais
+
+- ✏️ **Editor em tempo real**: Veja as mudanças enquanto digita
+- 📏 **Altura automática**: O campo de resposta cresce conforme o texto
+- 🎨 **Design profissional**: Bordas arredondadas e tipografia limpa
+- 📱 **Responsivo**: Funciona em desktop, tablet e celular
+- 🖼️ **Export otimizado**: PNG transparente em alta resolução (2x)
+- ⚡ **Instantâneo**: Sem cadastro, sem espera, sem complicação
 
 ## 🌐 Demo
 
-Acesse a aplicação em: **[https://seu-usuario.github.io/caixinha-perguntas](https://seu-usuario.github.io/caixinha-perguntas)**
+Acesse a aplicação em: **[https://ronaldofelix.github.io/caixinha-perguntas/](https://ronaldofelix.github.io/caixinha-perguntas)**
 
-## 🚀 Como usar
 
-1. **Edite a pergunta**: Clique no campo escuro superior e digite sua pergunta
-2. **Digite a resposta**: Clique no campo branco e escreva sua resposta
-3. **Baixe a imagem**: Clique no botão "📥 Baixar como imagem"
-4. **Use nas redes sociais**: Compartilhe a imagem gerada nos seus stories!
+## 🛠️ Especificações técnicas
 
-## 🛠️ Tecnologias utilizadas
+### Formato de saída
+- **Tipo**: PNG com transparência
+- **Resolução**: 2x (alta qualidade para edição)
+- **Dimensões**: 600x auto (adaptável ao conteúdo)
+- **Compatibilidade**: Todos os softwares de edição
 
-- **HTML5**: Estrutura semântica
-- **CSS3**: Estilização moderna com flexbox e bordas arredondadas
-- **JavaScript ES6**: Funcionalidades interativas
-- **html2canvas**: Biblioteca para captura de screenshot da caixinha
+### Tecnologias utilizadas
+- **HTML5**: Estrutura semântica e acessível
+- **CSS3**: Flexbox, bordas arredondadas, anti-aliasing
+- **JavaScript ES6**: Auto-resize, event handling
+- **html2canvas**: Captura em alta resolução
+
 
 ## 📦 Instalação local
 
@@ -43,25 +64,6 @@ open index.html
 ```
 
 Ou simplesmente baixe o arquivo `index.html` e abra no seu navegador.
-
-## 🚀 Deploy
-
-### GitHub Pages
-
-1. Faça fork deste repositório
-2. Vá em **Settings** > **Pages**
-3. Selecione **Deploy from a branch**
-4. Escolha **main** como branch e **/ (root)** como pasta
-5. Sua aplicação estará disponível em `https://seu-usuario.github.io/caixinha-perguntas`
-
-### Outras plataformas
-
-Esta aplicação pode ser facilmente deployada em:
-
-- **Vercel**: Conecte seu repositório GitHub
-- **Netlify**: Faça drag & drop da pasta ou conecte o GitHub
-- **GitHub Pages**: Configuração automática
-- **Surge.sh**: `surge` no diretório do projeto
 
 ## 🎨 Personalização
 
@@ -94,13 +96,25 @@ background: #fff;
 }
 ```
 
-## 📱 Casos de uso
+## 📱 Casos de uso específicos
 
-- **Stories do Instagram**: Crie perguntas interativas para seus seguidores
-- **Posts em redes sociais**: Gere conteúdo visual rapidamente
-- **Enquetes e pesquisas**: Formato visual atrativo para perguntas
-- **Conteúdo educativo**: Crie cartões de pergunta e resposta
-- **Marketing digital**: Templates para campanhas de engajamento
+### 🎬 **Editores de vídeo**
+- **YouTube**: Caixinhas para incentivar inscrições e comentários
+- **TikTok**: Templates para trends de perguntas e respostas
+- **Instagram Reels**: Overlays interativos para maior engajamento
+- **Vídeos corporativos**: Elementos visuais para apresentações
+
+### 🎨 **Designers e criativos**  
+- **Campanhas publicitárias**: Elementos de call-to-action
+- **Identidade visual**: Templates consistentes para marcas
+- **Apresentações**: Slides mais dinâmicos e interativos
+- **E-books e materiais**: Quebrar a monotonia textual
+
+### 📱 **Agências e freelancers**
+- **Produção em escala**: Templates rápidos para múltiplos clientes
+- **Apresentação de ideias**: Mockups visuais para campanhas
+- **Portfólio**: Mostrar versatilidade em diferentes formatos
+- **Prototipagem**: Testes rápidos de conceitos visuais
 
 ## 🤝 Contribuição
 
@@ -118,17 +132,21 @@ Este projeto está sob a licença MIT. Veja o arquivo [LICENSE](LICENSE) para ma
 
 ## 🐛 Reportar bugs
 
-Encontrou um bug? Abra uma [issue](https://github.com/seu-usuario/caixinha-perguntas/issues) descrevendo:
+Encontrou um bug? Abra uma [issue](https://github.com/ronaldofelix/caixinha-perguntas/issues) descrevendo:
 
 - Navegador e versão
 - Sistema operacional
 - Passos para reproduzir o problema
 - Comportamento esperado vs atual
 
-## ⭐ Suporte
+## ⭐ Por que os profissionais escolhem esta ferramenta
 
-Se este projeto foi útil para você, considere dar uma ⭐ no repositório!
+### 💰 **ROI para profissionais**
+- **Tempo economizado**: 10-15 min por template vs. criar do zero
+- **Qualidade consistente**: Resultado profissional garantido
+- **Sem custos**: Zero gastos com assets ou templates pagos
+- **Produtividade**: Foque no que importa: sua criatividade
 
 ---
 
-Desenvolvido com ❤️ para a comunidade
+**Desenvolvido por editores, para editores.** 🎬✨
