@@ -54,7 +54,7 @@ Demo da aplicação em: **[https://ronaldofelix.github.io/caixinha-perguntas/](h
 
 ```bash
 # Clone o repositório
-git clone https://github.com/seu-usuario/caixinha-perguntas.git
+git clone https://github.com/ronaldofelix/caixinha-perguntas.git
 
 # Entre no diretório
 cd caixinha-perguntas
